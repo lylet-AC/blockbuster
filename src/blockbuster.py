@@ -14,7 +14,7 @@ sprite_folder = os.path.join(game_folder, 'sprites')
 pygame.init()
 pygame.mixer.init()  # for sound
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("My Game")
+pygame.display.set_caption("BlockBuster")
 clock = pygame.time.Clock()
 
 running = True
