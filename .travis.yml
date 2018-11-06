@@ -1,0 +1,10 @@
+#Adds travis support to check code for errors
+
+#install mdl for checking Markdown in README.md
+before_install:
+  - gem install mdl
+notifications:
+  email: never
+
+script:
+  - mdl README.md
