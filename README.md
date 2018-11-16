@@ -11,8 +11,8 @@ If you are on ubuntu and need to install python3, it can be done with the comman
 `sudo apt-get install python3`
 
 After installing pip3, run the following command in the root directory of this project:
-`pip3 install --upgrade pip
-pip3 install --user -r requirements.txt`.
+`pip3 install --upgrade pip`
+`pip3 install --user -r requirements.txt`.
 
 
 ## Execution
