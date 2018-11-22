@@ -5,7 +5,7 @@ This repository contains code for the pygame game blockbuster.  BlockBuster is a
 
 BlockBuster is a program written in Python 3.  Pip3 is the default package installer that comes with python and therefore, it is required to install other dependencies for this program.  For a step-by-step guide on installing pip3, there is a link [here](https://pip.pypa.io/en/stable/installing/).
 
-If you are on windows and need to install python3, [download](https://www.python.org/downloads/windows/) the python3 installation file.  Ensure upon installing you check the td/tk and IDLE box for installing tkinter with python.
+If you are on windows and need to install python3, [download](https://www.python.org/downloads/windows/) the python3 installation file.
 
 If you are on ubuntu and need to install python3, it can be done with the command:
 `sudo apt-get install python3`
@@ -24,3 +24,11 @@ After the dependencies have been properly installed, use the following command t
 Or, if you are a windows user and python3 is not a recognized bash command, try using:
 
 `py -3 blockbuser.py`
+
+## The Settings File
+
+BlockBuster is a game that must be configured by editing the `settings.py` file located in the `src` directory.  Primarily the user will need to edit the `LEVEL` parameter.  This parameter is the image file that is converted into the level that the user plays.  BlockBuster searches for this image in the `input` directory, also located in the `src` directory.
+
+Some other notable settings can adjust the default height and width of the paddle with `PADDLE_HEIGHT` and `PADDLE_WIDTH` respectively.  We can also edit the amount of lives the player starts with by adjusting the `BALLS` parameter.  Furthermore we can adjust speed and size of the ball with `BALL_SPEED` and `BALL_SIZE`.  We can also adjust the width and height of the window with the `WIDTH` and `HEIGHT`.
+
+All of the values must be integer values and are measured in pixels, or if the variable is related to speed it is measured in pixels per frame.
