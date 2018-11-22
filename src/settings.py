@@ -15,7 +15,7 @@ ROOT_FOLDER = os.path.dirname(__file__) # root directory of the Game
 SPRITE_FOLDER = os.path.join(ROOT_FOLDER, "sprites") # sprite folder
 MAP_INPUT_FOLDER = os.path.join(ROOT_FOLDER, "input") # input image folder for mapgen
 MAP_OUTPUT_FOLDER = os.path.join(ROOT_FOLDER, "maps") # output image folder for mapgen
-LEVEL = "nerd.jpg"
+LEVEL = "jpark.jpg"
 
 # game settings
 WIDTH = 1024   # 16 * 64 or 32 * 32 or 64 * 16

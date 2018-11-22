@@ -1,10 +1,27 @@
 #Adds travis support to check code for errors
 
-#install mdl for checking Markdown in README.md
+language: python
+python: 
+ - "3.6"
+
 before_install:
   - gem install mdl
 notifications:
   email: never
 
+install:
+  - pip install --upgrade pip
+  - python3 -m pip install -r requirements.txt
+  - pip3 install autopep8
+  - pip3 install coveralls
+  - pip3 install pytest-flake8
+  - pip3 install pytest-cov
+
 script:
   - mdl README.md
+  - pytest tests
+  - coverage run --source tests -m py.test 
+  - coverage report
+
+after_success:
+    coveralls
