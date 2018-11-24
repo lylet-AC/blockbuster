@@ -11,10 +11,12 @@ YELLOW = (255, 255, 0)
 BLUE = (0, 0, 255)
 
 # directories (mostly for images)
-ROOT_FOLDER = os.path.dirname(__file__) # root directory of the Game
-SPRITE_FOLDER = os.path.join(ROOT_FOLDER, "sprites") # sprite folder
-MAP_INPUT_FOLDER = os.path.join(ROOT_FOLDER, "input") # input image folder for mapgen
-MAP_OUTPUT_FOLDER = os.path.join(ROOT_FOLDER, "maps") # output image folder for mapgen
+ROOT_FOLDER = os.path.dirname(__file__)  # root directory of the Game
+SPRITE_FOLDER = os.path.join(ROOT_FOLDER, "sprites")  # sprite folder
+# input image folder for mapgen
+MAP_INPUT_FOLDER = os.path.join(ROOT_FOLDER, "input")
+# output image folder for mapgen
+MAP_OUTPUT_FOLDER = os.path.join(ROOT_FOLDER, "maps")
 LEVEL = "jpark.jpg"
 
 # game settings
@@ -23,7 +25,7 @@ HEIGHT = 768  # 16 * 48 or 32 * 24 or 64 * 12
 FPS = 45
 TITLE = "Block Buster"
 BGCOLOR = BLACK
-BLOCK_POINTS = 10 #points per block
+BLOCK_POINTS = 10  # points per block
 
 TILESIZE = 8
 GRIDWIDTH = WIDTH / TILESIZE

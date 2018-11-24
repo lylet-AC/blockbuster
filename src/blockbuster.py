@@ -4,6 +4,7 @@ from settings import *
 from sprites import *
 from mapgen import generate_map
 
+
 class Game:
     def __init__(self):
         pg.init()
@@ -38,20 +39,25 @@ class Game:
         self.screen.blit(text_surface, text_rect)
 
     def load_data(self):
-        self.player_img = pg.image.load(os.path.join(SPRITE_FOLDER, "paddle.png")).convert_alpha()
-        self.player_img = pg.transform.scale(self.player_img, (PADDLE_WIDTH, PADDLE_HEIGHT))
+        self.player_img = pg.image.load(os.path.join(
+            SPRITE_FOLDER, "paddle.png")).convert_alpha()
+        self.player_img = pg.transform.scale(
+            self.player_img, (PADDLE_WIDTH, PADDLE_HEIGHT))
         self.ball_img = pg.image.load(os.path.join(SPRITE_FOLDER, "ball.png"))
-        self.ball_img = pg.transform.scale(self.ball_img, (BALL_SIZE, BALL_SIZE))
-        self.block_img = pg.image.load(os.path.join(SPRITE_FOLDER, "block.png"))
-        self.block_img = pg.transform.scale(self.block_img, (TILESIZE, TILESIZE))
+        self.ball_img = pg.transform.scale(
+            self.ball_img, (BALL_SIZE, BALL_SIZE))
+        self.block_img = pg.image.load(
+            os.path.join(SPRITE_FOLDER, "block.png"))
+        self.block_img = pg.transform.scale(
+            self.block_img, (TILESIZE, TILESIZE))
 
         self.map_data = generate_map(LEVEL)
         self.bigfont = pg.font.SysFont('symeteoiv50', 40)
         self.smallfont = pg.font.SysFont('symeteoiv50', 30)
 
     def new_ball(self):
-        self.ball = Ball(self, (WIDTH/2)-(PADDLE_WIDTH/2), HEIGHT-70)
-        self.player.x = ((WIDTH/2)-(PADDLE_WIDTH-(BALL_SIZE/2)))
+        self.ball = Ball(self, (WIDTH / 2) - (PADDLE_WIDTH / 2), HEIGHT - 70)
+        self.player.x = ((WIDTH / 2) - (PADDLE_WIDTH - (BALL_SIZE / 2)))
         if(self.player.lives > 0):
             self.show_start_screen()
 
@@ -59,14 +65,15 @@ class Game:
         # initialize all variables and do all the setup for a new game
         self.all_sprites = pg.sprite.Group()
         self.blocks = pg.sprite.Group()
-        self.player = Player(self, (WIDTH/2)-(PADDLE_WIDTH/2), HEIGHT-50)
+        self.player = Player(self, (WIDTH / 2) -
+                             (PADDLE_WIDTH / 2), HEIGHT - 50)
         self.new_ball()
         for col, colors in enumerate(self.map_data):
             for row, color in enumerate(colors):
                 if color == BLACK:
                     pass
                 else:
-                    Block(self, col, row+2, color)
+                    Block(self, col, row + 2, color)
 
         self.boundaries = Boundaries(self)
 
@@ -107,18 +114,22 @@ class Game:
                     self.quit()
                 if pressed[pg.K_LEFT] and self.player.x > 12:
                     self.player.move(dx=-PADDLE_SPEED)
-                if pressed[pg.K_RIGHT] and self.player.x < WIDTH - PADDLE_WIDTH - 12:
+                if pressed[pg.K_RIGHT] and self.player.x < WIDTH - \
+                        PADDLE_WIDTH - 12:
                     self.player.move(dx=PADDLE_SPEED)
 
     def show_start_screen(self):
-        self.draw_text("Press a key to start", self.bigfont, 75, WHITE, WIDTH / 2, HEIGHT * 3 / 4, align="center")
+        self.draw_text("Press a key to start", self.bigfont, 75,
+                       WHITE, WIDTH / 2, HEIGHT * 3 / 4, align="center")
         pg.display.flip()
         self.wait_for_key()
 
     def show_gameover_screen(self):
         self.screen.fill(BLACK)
-        self.draw_text("GAME OVER", self.bigfont, 100, RED, WIDTH / 2, HEIGHT / 2, align="center")
-        self.draw_text("Press a key to start", self.bigfont, 75, WHITE, WIDTH / 2, HEIGHT * 3 / 4, align="center")
+        self.draw_text("GAME OVER", self.bigfont, 100, RED,
+                       WIDTH / 2, HEIGHT / 2, align="center")
+        self.draw_text("Press a key to start", self.bigfont, 75,
+                       WHITE, WIDTH / 2, HEIGHT * 3 / 4, align="center")
         pg.display.flip()
         self.wait_for_key()
 
@@ -133,6 +144,7 @@ class Game:
                     self.quit()
                 if event.type == pg.KEYUP:
                     waiting = False
+
 
 # create the game object
 g = Game()
