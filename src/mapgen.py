@@ -11,9 +11,7 @@ def generate_map(in_file):
     pix = im.load()
 
     output_list = []
-    line_list = []
 
-    test = 0
     width, height = im.size
 
     for w in range(width):
