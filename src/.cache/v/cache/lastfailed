@@ -1,0 +1,5 @@
+{
+  "tests/test_blockbuster.py": true,
+  "tests/test_flake8.py::test_flake8": true,
+  "tests/test_mapgen.py::test_generate_map": true
+}
