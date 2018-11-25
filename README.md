@@ -32,3 +32,16 @@ BlockBuster is a game that must be configured by editing the `settings.py` file 
 Some other notable settings can adjust the default height and width of the paddle with `PADDLE_HEIGHT` and `PADDLE_WIDTH` respectively.  We can also edit the amount of lives the player starts with by adjusting the `BALLS` parameter.  Furthermore we can adjust speed and size of the ball with `BALL_SPEED` and `BALL_SIZE`.  We can also adjust the width and height of the window with the `WIDTH` and `HEIGHT`.
 
 All of the values must be integer values and are measured in pixels, or if the variable is related to speed it is measured in pixels per frame.
+
+## Testing
+
+In this project, pytest3 is used to test functionality of the game and associated files.  In order to install pytest3 in Linux, use the following command to the terminal: `sudo apt install python3-pytest`.  Afterwards, verify your installation by typing in `pytest-3`.  If installed correctly, you shall be prompted that you did not enter enough arguments.
+
+Afterwards there are two required installations used for linting.  Linting is the process of following a style guide to make code easier to debug/lint.  In this project, we use the PEP8 standards.  In order to check for PEP8 python standards, we use two primary tools: Flake8 and autopep8.
+
+They can be installed by using the following commands:
+
+`python3 -m pip install flake8` for flake8 installation
+`python3 -m pip install autopep8` for autopep8 installation
+
+Then you can run flake8 to check your python files against a style guide with: `flake8 <file_name>.py` and then correct errors with `autopep8 --in-place --aggressive <file_name>.py`.  A similar implementation checks all of BlockBuster.py with this linting tool in the tests directory.
