@@ -17,7 +17,8 @@ SPRITE_FOLDER = os.path.join(ROOT_FOLDER, "sprites")  # sprite folder
 MAP_INPUT_FOLDER = os.path.join(ROOT_FOLDER, "input")
 # test folder
 TEST_FOLDER = os.path.join(ROOT_FOLDER, "tests")
-LEVEL = "test_img.png"
+TEST_IMAGE = os.path.join(TEST_FOLDER, "test_img.png")
+LEVEL = "jpark.jpg"
 
 # game settings
 WIDTH = 1024   # 16 * 64 or 32 * 32 or 64 * 16
@@ -27,7 +28,7 @@ TITLE = "Block Buster"
 BGCOLOR = BLACK
 BLOCK_POINTS = 10  # points per block
 
-TILESIZE = 8
+TILESIZE = 12
 GRIDWIDTH = WIDTH / TILESIZE
 GRIDHEIGHT = HEIGHT / TILESIZE
 

@@ -13,6 +13,11 @@ class Game:
         self.clock = pg.time.Clock()
         pg.key.set_repeat(1, 1)
         self.load_data()
+        self.bg_image = pg.image.load(os.path.join(SPRITE_FOLDER, "background.png"))
+        self.bg_image = pg.transform.scale(
+            self.bg_image, (WIDTH, HEIGHT))
+        self.bg_rect = self.bg_image.get_rect()
+
 
     def draw_text(self, text, font_name, size, color, x, y, align="nw"):
         font = pg.font.SysFont('symeteoiv50', size)
@@ -58,8 +63,8 @@ class Game:
     def new_ball(self):
         self.ball = Ball(self, (WIDTH / 2) - (PADDLE_WIDTH / 2), HEIGHT - 70)
         self.player.x = ((WIDTH / 2) - (PADDLE_WIDTH - (BALL_SIZE / 2)))
-        if(self.player.lives > 0):
-            self.show_start_screen()
+        if(self.player.lives < BALLS and self.player.lives > 0):
+            self.show_wait_screen()
 
     def new(self):
         # initialize all variables and do all the setup for a new game
@@ -73,7 +78,7 @@ class Game:
                 if color == BLACK:
                     pass
                 else:
-                    Block(self, col, row + 2, color)
+                    Block(self, col, row + 4, color)
 
         self.boundaries = Boundaries(self)
 
@@ -119,6 +124,16 @@ class Game:
                     self.player.move(dx=PADDLE_SPEED)
 
     def show_start_screen(self):
+        self.screen.fill(BLACK)
+        self.screen.blit(self.bg_image, self.bg_rect)
+        self.draw_text("BLOCKBUSTER", self.bigfont, 100,
+                       WHITE, WIDTH/2, HEIGHT * 1 / 4, align="center")
+        self.draw_text("Press a key to start", self.bigfont, 75,
+                       RED, WIDTH / 2, HEIGHT * 3 / 4, align="center")
+        pg.display.flip()
+        self.wait_for_key()
+
+    def show_wait_screen(self):
         self.draw_text("Press a key to start", self.bigfont, 75,
                        WHITE, WIDTH / 2, HEIGHT * 3 / 4, align="center")
         pg.display.flip()

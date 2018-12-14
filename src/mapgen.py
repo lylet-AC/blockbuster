@@ -7,7 +7,7 @@ import sys
 def generate_map(in_file):
     # Can be many different formats.
     im = Image.open(os.path.join(MAP_INPUT_FOLDER, in_file))
-    im = im.resize((int(WIDTH / TILESIZE), int(HEIGHT * (.6) / TILESIZE)))
+    im = im.resize((int(WIDTH / TILESIZE), int(HEIGHT * (.65) / TILESIZE)))
     pix = im.load()
 
     output_list = []
